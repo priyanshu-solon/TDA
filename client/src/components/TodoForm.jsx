@@ -2,7 +2,7 @@ import { useState } from "react";
 
 
 const TodoForm = () =>{
-    const [text,setText] = useState("")
+    const [text,setText] = useState("");
 
     const onFormSubmit = ()=>{
 
