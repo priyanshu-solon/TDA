@@ -1,10 +1,12 @@
 
 
 
+
 const Header = () => {
-    return(
+
+    return (
         <header>
-        <h1>ToDoList</h1>
+            <h1>TodoList</h1>
         </header>
     )
 }

@@ -11,7 +11,7 @@ const Connection = () => {
 
   const MONGODB_URI = `mongodb+srv://${USERNAME}:${PASSWORD}@mern-todo.lpm4y6a.mongodb.net/`;
 
-  mongoose.connect(MONGODB_URI);
+  mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
   mongoose.connection.on('connected', () => {
     console.log('Database Connected Successfully');
