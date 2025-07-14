@@ -1,13 +1,28 @@
+//SETUP AND CONFIGURATION
+
+//imports mongodb client to connect database
 const mongoClient = require("mongodb").MongoClient;
+//imports cors middleware allowing api access
 const cors = require("cors");
+//imports express framework for web app
 const express = require("express");
 
+//defines connection string for mongodb,
+//local mongodb instance run on default port 27017
 const conString = "mongodb://127.0.0.1:27017";
 
+//initialize express app
 const app = express();
+//enables cors for all routes
 app.use(cors());
+//parse incoming request with url encoded payload
+//for html form submission extended for rich obj,array encoding
 app.use(express.urlencoded({extended:true}));
+//parse incoming request with json payload
 app.use(express.json());
+
+
+//API ENDPOINTS
 
 app.get('/users/:userid', (req, res)=>{
     mongoClient.connect(conString).then(clientObj=>{
@@ -113,5 +128,9 @@ app.delete('/delete-appointment/:id', (req, res)=>{
    });
 });
 
+//SERVER LISTENING
+
+//starts express server and listen for incoming reuest on 4040
 app.listen(4040);
+//logs server started and provides url
 console.log(`Server Started http://127.0.0.1:4040`);
